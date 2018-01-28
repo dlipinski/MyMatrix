@@ -1,0 +1,102 @@
+       /* MyMatrix swap_line(int a, int b){
+            MyMatrix myMatrix(width);
+
+            if(typeid(type)==typeid(MyFraction)){
+                for(int i=0;i<this->get_height()*this->get_width();i++)
+                    myMatrix.matrix[i].set_values(matrix[i].get_numerator(),matrix[i].get_denuminator());
+                type line_a[width];
+                type line_b[width];
+                for(int i=0;i<width;i++){
+                        line_a[i].set_values(matrix[a*width+i].get_numerator(),matrix[a*width+i].get_denuminator());
+                        line_b[i].set_values(matrix[b*width+i].get_numerator(),matrix[b*width+i].get_denuminator());
+
+                }
+                for(int i=0;i<width;i++){
+                    myMatrix.at(b,i).set_values(line_a[i].get_numerator(),line_a[i].get_denuminator());
+                    myMatrix.at(a,i).set_values(line_b[i].get_numerator(),line_b[i].get_denuminator());
+                }
+            }
+            else{
+                for(int i=0;i<width*width;i++)
+                    myMatrix.matrix[i]=matrix[i];
+                type line_a[width];
+                type line_b[width];
+                for(int i=0;i<width;i++){
+                        line_a[i]=matrix[a*width+i];
+                        line_b[i]=matrix[b*width+i];
+                }
+                for(int i=0;i<width;i++){
+                    myMatrix.at(b,i)=line_a[i];
+                    myMatrix.at(a,i)=line_b[i];
+                }
+            }
+
+            return myMatrix;
+        }
+*/
+
+        /*MyFraction operator- (const MyFraction& b){
+            MyFraction myFraction;
+              BigInteger common_denuminator = gcd(denuminator,b.get_denuminator());
+            myFraction.numerator =
+                ((common_denuminator/this->denuminator)*(this->numerator))
+                -
+                ((common_denuminator/b.get_denuminator())*(b.get_numerator()));
+            myFraction.denuminator = common_denuminator;
+            //return shortenFraction(myFraction);
+            return myFraction;
+         }
+         MyFraction operator* (const long int& b){
+            MyFraction myFraction;
+            myFraction.numerator = this->numerator * b;
+            myFraction.denuminator = this->denuminator;
+            //return shortenFraction(myFraction);
+            return myFraction;
+         }*/
+
+
+                  /*
+         MyFraction operator/ (const MyFraction& b){
+            MyFraction myFraction;
+            myFraction.numerator = this->numerator * b.get_denuminator();
+            myFraction.denuminator = this->denuminator * b.get_numerator();
+            //return shortenFraction(myFraction);
+            return myFraction;
+         }*/
+
+
+
+        void set_size(int i,int j){width=i;height=j;matrix= new MyFraction[i*j];}
+
+
+                void zero_values(){
+                for(int i=0;i<width*height;i++)
+                        matrix[i]=0;
+         }
+
+        MyMatrix<type> operator* (const long int& b){
+            MyMatrix myMatrix(this->get_width(),this->get_height());
+            for(int i=0;i<this->get_height();i++){
+                for(int j=0;j<this->get_width();j++){
+                    myMatrix.at(i,j)
+                    =
+                    matrix[i * get_width() + j]
+                    *
+                    b;
+                }
+            }
+            return myMatrix;
+        }
+                MyMatrix<type> operator- (const MyMatrix& b){
+            MyMatrix myMatrix(this->get_width(),this->get_height());
+            for(int i=0;i<this->get_height();i++){
+                for(int j=0;j<this->get_width();j++){
+                    myMatrixmatrix(i,j)
+                    =
+                    matrix[i * get_width() + j]
+                    -
+                    b.matrix[i * b.get_width() + j];
+                }
+            }
+            return myMatrix;
+        }

@@ -1,0 +1,36 @@
+A*X,(A+B+C)*X,A*(B*C)
+
+MyMatrix MyFraction times:
+313950.000000
+510985.000000
+117074520.000000
+
+MyMatrix double times:
+12.000000
+43.000000
+653.000000
+
+MyMatrix float times:
+9.000000
+38.000000
+701.000000
+
+Eigen double times:
+8.000000
+8.000000
+205.000000
+
+
+
+Gauss times
+Eigen: 109.000000
+
+
+FullGaussTimes
+Double: 172.000000
+Float: 122.000000
+
+
+PartialGaussTimes
+Double: 160.000000
+Float: 151.000000
